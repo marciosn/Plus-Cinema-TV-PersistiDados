@@ -1,0 +1,44 @@
+<ui:composition 
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+	 	xmlns:ui="http://java.sun.com/jsf/facelets">
+	 	
+	<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+ 
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      
+      <a class="brand"><h:graphicImage library="img" name="cloud4.png"/></a>
+      <h:link class="brand" value="DashBoard" outcome="/index"  />
+      
+      <!-- <a class="brand" href="index.xhtml" outcome="index" >Agenda</a> -->
+      <div class="nav-collapse collapse">
+      	<ul class="nav">
+      		
+      		<li><h:link value="Inserir Filme" outcome="/paginas/Nova_filme" /></li>
+      		<li><h:link value="Inserir Serie" outcome="/paginas/Novo_serie" /></li>
+      		<li><h:link value="Listar Filmes" outcome="/paginas/Lista_filmes" /></li>
+      		<li><h:link value="Listar Series" outcome="/paginas/Lista_serie" /></li>
+      		
+    	</ul>
+    	
+    	<ul class="nav">
+      		
+      		<li><h:link value="Logout" outcome="/login" /></li>
+      	
+      		
+    	</ul>
+
+
+      </div>
+ 
+    </div>
+  </div>
+</div>
+</ui:composition>

@@ -1,0 +1,36 @@
+<ui:composition 
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+	 	xmlns:ui="http://java.sun.com/jsf/facelets">
+	 	
+	<div id='cssmenu' class="navbar-fixed-top">
+<ul>
+	
+	  
+   <li class='active'>
+   <h:graphicImage library="img" name="cloud3.png"/>
+   <h:link class="brand" value="CLOUD LIST" outcome="/index" />
+   </li>
+   
+   <li class='has-sub'><a class="brand scroller">
+   
+   <span>Opções da Cloud List</span>
+   </a>		
+      <ul>
+      
+      
+         <li><em><h:link value="INSERIR TAREFAS" outcome="/paginas/Nova_tarefa" /></em><i class=" icon-ok-sign"></i></li>
+      	<li><em><h:link value="LISTAR TAREFAS" outcome="/paginas/Lista_tarefas" /></em></li>
+
+      </ul>
+   </li>
+
+   <li><h:link class="brand" value="Logout" outcome="/login"  /></li>
+   
+   		
+            
+   
+   
+</ul>
+</div>
+</ui:composition>

@@ -1,0 +1,57 @@
+<ui:composition template="/WEB-INF/templates/geral.xhtml"
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+	 	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="conteudo">
+		<h2><em>Inserir Filme</em></h2>
+		<legend></legend>
+		<h:panelGroup rendered="#{facesContext.validationFailed}">
+			<div class="alert alert-info">
+  			<button type="button" class="close" data-dismiss="alert">
+  			<i class="icon-thumbs-up" >x</i>
+  			</button>
+  			<strong>Sinto Muito!!!</strong> O preenchimento dos campos é necessário ..
+  			
+		</div>
+
+		</h:panelGroup>
+		<h:form>
+
+		<h:panelGrid columns="2">
+		<h5>
+			<h:outputLabel for="nome" value="Nome" />
+		</h5> 
+			<h:inputText class="input-xxlarge" id="nome" label="nome"
+			required="true" value="#{controleBean.serie.nome}" />
+		<h5>	
+			<h:outputLabel for="genero" value="Genero" />
+		</h5>
+			<h:inputText rows="10" class="input-xxlarge" id="genero" 
+			label="genero" required="true" value="#{controleBean.serie.genero}" />
+		<h5>	
+			<h:outputLabel for="ano" value="Ano" />
+		</h5>
+			<h:inputText rows="10" class="input-xxlarge" id="ano" 
+			label="ano" required="true" value="#{controleBean.serie.ano}" />
+		<h5>	
+			<h:outputLabel for="nota" value="Nota" />
+		</h5>
+			<h:inputText rows="10" class="input-xxlarge" id="nota" 
+			label="nota" required="true" value="#{controleBean.serie.notaMedia}" />
+		<h5>	
+			<h:outputLabel for="url" value="Url" />
+		</h5>
+			<h:inputText rows="10" class="input-xxlarge" id="url" 
+			label="url" required="true" value="#{controleBean.serie.url}" />	
+		</h:panelGrid>
+		<div class="">
+			<h:commandButton id="salvar" class="btn btn-primary" 
+			 value="Salvar Serie" action="#{controleBean.cadastraSerie}" />
+		</div>
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,49 @@
+<ui:composition template="/WEB-INF/templates/geral.xhtml"
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+	 	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="conteudo">
+		<h1><em>Editar Tarefas Existentes</em></h1>
+		<legend></legend>
+
+		<h:panelGroup rendered="#{facesContext.validationFailed}">
+			<div class="alert alert-info">
+  			<button type="button" class="close" data-dismiss="alert">
+  			<i class="icon-thumbs-up" >x</i>
+  			</button>
+  			<strong>Sinto Muito!!!</strong> O preenchimento dos campos é necessário ..
+  			
+		</div>
+
+		</h:panelGroup>
+
+		<h:form >
+		<h:panelGrid columns="">
+			<h:outputLabel for="id" value="ID"/> 
+			<h:inputText id="id" value="#{controleBean.filme2.id}" required="true" class="input-xxlarge uneditable-input" disabled="false"/>
+			<h:outputLabel for="nome" value="Nome"/> 
+			<h:inputText id="nome" value="#{controleBean.filme2.nome}" required="true" class="input-xxlarge" disabled="false"/>
+			<h:outputLabel for="genero" value="Genero do filme"/> 
+			<h:inputText id="genero" value="#{controleBean.filme2.genero}" required="true" class="input-xxlarge"/>
+			<h:outputLabel for="ano" value="Ano do filme" />
+			<h:inputText id="ano" value="#{controleBean.filme2.ano}" required="true" class="input-xxlarge" />
+			<h:outputLabel for="nota" value="Nota Media" />
+			<h:inputText id="nota" value="#{controleBean.filme2.notaMedia}" required="true" class="input-xxlarge" />
+			<h:outputLabel for="url" value="Url da Imagem" />
+			<h:inputText id="url" value="#{controleBean.filme2.url}" required="true" class="input-xxlarge" />
+			
+		</h:panelGrid>
+			<div class="">
+			<h:commandButton id="salvar2" class="btn btn-primary" value="Salvar" action="#{controleBean.Edita}" >
+			<f:setPropertyActionListener target="#{controleBean.filme2.id}" value="#{controleBean.filme2.id}" />
+			</h:commandButton>
+			<h:commandButton id="cancelar" class="btn btn-primary" value="Cancelar" action="Lista_filmes" />
+			</div>
+		</h:form>
+
+
+	</ui:define>
+
+</ui:composition>

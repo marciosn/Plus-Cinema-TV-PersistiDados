@@ -1,0 +1,99 @@
+<ui:composition template="/WEB-INF/templates/geral.xhtml"
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+	 	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="conteudo">
+
+		<h2><em>Lista de Séries</em></h2>
+		<legend></legend>
+
+		<h:panelGroup rendered="#{not empty facesContext.messageList}">
+		<!--  
+	        <div class="alert alert-success">
+		        <button type="button" class="close" data-dismiss="alert">x</button>
+		        <h:messages styleClass="unstyled"  />
+       		</div>
+       	-->
+        </h:panelGroup>
+		<h:dataTable styleClass="table  table-condensed table-hover" 
+			value="#{controleBean.serieBanco}" var="var"
+			rendered="#{not empty controleBean.serieBanco}">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="ID" class="label label-info" />
+				</f:facet>
+				<h5>
+				<h:outputText value="#{var.id}" />
+				</h5>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Nome" class="label label-info" />
+				</f:facet>
+				<h5>
+				<h:outputText value="#{var.nome}" />
+				</h5>
+			</h:column>
+			 
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Genero" class="label label-info"/>
+				</f:facet>
+				<h5>
+				<em><h:outputText value="#{var.genero}"/></em>
+				</h5>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Ano" class="label label-info"/>
+				</f:facet>
+				<h5>
+				<em><h:outputText value="#{var.ano}"/></em>
+				</h5>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Nota Media" class="label label-info"/>
+				</f:facet>
+				<h5>
+				<em><h:outputText value="#{var.notaMedia}"/></em>
+				</h5>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Url da Imagem" class="label label-info"/>
+				</f:facet>
+				<h5>
+				<em><h:outputText value="#{var.url}"/></em>
+				</h5>
+			</h:column>
+					<h:column>
+				<h:form>
+				<div class="btn-group">
+				<h:commandButton value="Editar" action="Editar_series" styleClass="btn btn btn-mini btn-primary" 
+				rel="tooltip" title="Editar esta Serie">
+				<f:setPropertyActionListener target="#{controleBean.serie2.id}" value="#{var.id}" />
+				<f:setPropertyActionListener target="#{controleBean.serie2.nome}" value="#{var.nome}" />
+				<f:setPropertyActionListener target="#{controleBean.serie2.ano}" value="#{var.ano}" />
+				<f:setPropertyActionListener target="#{controleBean.serie2.genero}" value="#{var.genero}" />
+				<f:setPropertyActionListener target="#{controleBean.serie2.notaMedia}" value="#{var.notaMedia}" />
+				<f:setPropertyActionListener target="#{controleBean.serie2.url}" value="#{var.url}" />
+				</h:commandButton>
+				
+				<h:commandButton value="Apagar" action="#{controleBean.DeletaSerie}" styleClass="btn btn btn-mini btn-primary"
+				onclick="return confirm ('Quer Apagar Essa Série?')" rel="tooltip" title="Apagar esta Serie">
+				<f:setPropertyActionListener target="#{controleBean.serie}" value="#{var}" />
+				</h:commandButton>
+
+				</div>
+				</h:form>
+			</h:column>
+
+		</h:dataTable>
+
+
+	</ui:define>
+
+</ui:composition>
